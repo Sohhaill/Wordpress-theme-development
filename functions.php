@@ -13,6 +13,7 @@ function wplearning_theme_script()
 	wp_enqueue_style('style', get_stylesheet_directory_uri());
 	wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style('tailwind-css', get_template_directory_uri() . '/src/output.css');
+	wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/bootstrap/css/style.css'); // Unique handle
 
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.js');
 
@@ -77,7 +78,9 @@ function resilience_setup()
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__('Primary', 'resilience'),
+			'menu-1' => esc_html__('Header Menu', 'resilience'),
+			'footer-1' => esc_html__('Footer Menu1', 'resilience'),
+			'footer-2' => esc_html__('Footer Menu2', 'resilience'),
 		)
 	);
 
@@ -118,15 +121,7 @@ function resilience_setup()
 	 *
 	 * @link https://codex.wordpress.org/Theme_Logo
 	 */
-	add_theme_support(
-		'custom-logo',
-		array(
-			'height' => 250,
-			'width' => 250,
-			'flex-width' => true,
-			'flex-height' => true,
-		)
-	);
+	add_theme_support('custom-logo');
 }
 add_action('after_setup_theme', 'resilience_setup');
 

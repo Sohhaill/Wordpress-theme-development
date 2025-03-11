@@ -9,84 +9,88 @@ Template Name: Home Page
 
 get_header();
 ?>
+<?php $home_banner = get_field('home_banner');
 
+$course_button = $home_banner['explore_course'];
+$banner_login = $home_banner['login'];
+$banner_image = $home_banner['image'];
+
+?>
 <section class="bg-white text-center p-6">
     <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium">
-        Empowerment
+        <?php echo $home_banner['empower'] ?>
     </div>
     <h1 class="text-[40px] font-bold text-black mt-5">
-        <span class="text-green-700 "> Resilience </span> Counseling and <br> Research Consultation Services</span>
+        <span class="text-green-700 "> <?php echo $home_banner['resiliance_span'] ?> </span>
+        <?php echo $home_banner['heading'] ?></span>
     </h1>
     <p class="text-gray-600 mt-4">
-        We provide counseling, research, and tailored services to build strength.
+        <?php echo $home_banner['paragraph'] ?>
     </p>
     <div class="register_button flex gap-[8px] items-center justify-center
     ">
         <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[12px] px-[24px] text-center rounded-[8px] border border-[rgba(76,120,43,1)]
-" href="#">Explore Courses</a>
+" href="<?php echo esc_url($course_button['url']) ?>"> <?php echo $course_button['title'] ?></a>
         <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-            href="#">Login</a>
+            href="<?php echo esc_url($banner_login['url']) ?>"> <?php echo $banner_login['title'] ?></a>
     </div>
-    <div class="container py-5">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Rectangle 6.png" class="img-fluid"
-            alt="...">
-    </div>
-
+    <?php if (!empty($banner_image)) {
+        # code...
+        ?>
+        <div class="container py-5 flex justify-center">
+            <img src="<?php echo esc_url($banner_image['url']) ?>" class="img-fluid" alt="...">
+        </div>
+    <?php } ?>
 </section>
 
+<?php $mission = get_field('mission');
+$mission_learn = $mission['learn_more'];
+$mission_images = get_field('image');
+
+?>
 
 <section class="bg-[#eef2ea]">
     <div class="container mx-auto p-6 flex flex-wrap">
         <div class="w-full md:w-1/2 p-4">
             <h1 class="!text-green-700 text-[16px] mb-2">
-                Who We Are
+                <?php echo $mission['who'] ?>
             </h1>
             <h2 class="text-gray-900 text-4xl mb-4">
-                Mission &amp; Vision
+                <?php echo $mission['vission'] ?>
             </h2>
             <p class="text-gray-600 text-lg mb-4">
-                We offer resilience-building through personalized counseling, research insights, and tailored
-                consultation services for success. We offer resilience-building through personalized counseling,
-                research insights, and tailored consultation services for success.
+                <?php echo $mission['pargrap1'] ?>
             </p>
             <p class="text-gray-600 text-lg mb-4">
-                We offer resilience-building through personalized counseling, research insights, and tailored
-                consultation services for success. We offer resilience-building through personalized counseling,
-                research insights, and tailored consultation services for success.
+                <?php echo $mission['Pargraph2'] ?>
             </p>
             <div class="register_button 
     ">
 
                 <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-                    href="#">Learn More</a>
+                    href="<?php echo esc_url($mission_learn['url']) ?>"> <?php echo $mission_learn['title'] ?></a>
             </div>
         </div>
         <div class="w-full md:w-1/2 p-4 grid grid-cols-2
  gap-4">
-            <img alt="Group of people in a counseling session" class="w-full rounded-lg"
-                src="https://storage.googleapis.com/a1aa/image/paanuuS2bIr2KIbqAJABS32UIOp-9GuvKb_L_0TN-2w.jpg" />
-            <img alt="Individual counseling session" class="w-full rounded-lg" height="400"
-                src="https://storage.googleapis.com/a1aa/image/qS-dlign9GqTqB1C8aE-WR5FxD92SMtt6E_JtnWb6yc.jpg"
-                width="600" />
-            <img alt="Counseling session in a cozy room" class="w-full rounded-lg"
-                src="https://storage.googleapis.com/a1aa/image/sfPMJCf16O3jbg2JlrrKneLo9PbYANfdomYkixs5aQ8.jpg" />
-            <img alt="Group discussion in a modern office" class="w-full rounded-lg"
-                src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/people-meeting-support-group (4).png" />
+            <?php foreach ($mission_images as $m_images): ?>
+                <img alt="Group of people in a counseling session" class="w-full rounded-lg"
+                    src="<?php echo $m_images['mission_image']['url'] ?>" />
 
-            <img alt="People having a discussion near a window" class="w-full rounded-lg"
-                src="https://storage.googleapis.com/a1aa/image/olkl7TJDwExi_Muci2I9hTFPQ-Ng1IUX5HFaQs5OSUc.jpg" />
-            <img alt="Individual counseling session in a classroom" class="w-full rounded-lg"
-                src="https://storage.googleapis.com/a1aa/image/7vIp0E8gTYRuxHfRpZtLiepvY7Fq48seWsNFMfs6DT4.jpg" />
+            <?php endforeach ?>
         </div>
     </div>
 </section>
+<?php $course_post = get_field('course_post');
+
+?>
+
 <section class="flex flex-col items-center py-16 gap-11 container">
 
 
     <div class="flex items-center flex-col gap-3">
-        <div class="text-[#4C782B] text[16px] mb-2 font-medium">Explore Our Courses</div>
-        <div class="text-gray-800 text-2xl font-bold text-center">Discover Popular Courses and Learning<br>
-            Opportunities</div>
+        <div class="text-[#4C782B] text[16px] mb-2 font-medium"> <?php echo $course_post['explore'] ?></div>
+        <div class="text-gray-800 text-2xl font-bold text-center"> <?php echo $course_post['heading'] ?></div>
 
     </div>
     <div class="card-group flex flex-col gap-3 md:!flex-row">

@@ -35,32 +35,36 @@
 				<div
 					class="header_main px-4 py-2 border flex flex-row justify-between container border-[#f7f7f723] items-center rounded-[20px]">
 					<div class="header_log">
-						<img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/image 19.png">
+						<?php
+						$logo_img = get_header_image();
+
+						?>
+
+						<a href="#"> <img src="<?php echo $logo_img; ?>" width="65"> </a>
 					</div>
 					<div class="header_menu">
-						<ul class="flex gap-4
-						list-none">
-							<li>
-								home
-							</li>
+						<?php wp_nav_menu(array(
+							'container' => false,
+							'menu' => 'menu-1',
+							'menu_class' => 'navigation ',
 
-							<li>
-								home
-							</li>
 
-							<li>
-								home
-							</li>
-							<li>
-								home
-							</li>
-						</ul>
+						)) ?>
 
 					</div>
+					<?php
+					$Header_login = get_field('header_login');
+					$Header_signup = get_field('Header_signup');
+
+
+
+					?>
 					<div class="register_button hidden lg:!flex gap-4 items-center justify-center">
-						<a class="!text-[#4c782b] no-underline font-medium text-[16px] text-center" href="#">Login</a>
+
+						<a class="!text-[#4c782b] no-underline font-medium text-[16px] text-center"
+							href="<?php echo esc_url($Header_login['url']) ?>"><?php echo $Header_login['title'] ?></a>
 						<a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-							href="#">Sign up</a>
+							href="<?php echo esc_url($Header_signup['url']) ?>"><?php echo $Header_signup['title'] ?></a>
 
 					</div>
 				</div>

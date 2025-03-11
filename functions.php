@@ -194,7 +194,8 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-
+require get_template_directory() . '/custom-post-type/Courses.php';
+require get_template_directory() . '/custom-post-type/Events.php';
 /**
  * Load Jetpack compatibility file.
  */

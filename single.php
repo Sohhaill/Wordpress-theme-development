@@ -1,40 +1,44 @@
-<?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package resilience
- */
+<?php get_header(); ?>
 
-get_header();
-?>
-
-	<main id="primary" class="site-main">
-
-		<?php
-		while ( have_posts() ) :
+<main class="course-single">
+	<?php
+	if (have_posts()):
+		while (have_posts()):
 			the_post();
+			$post_id = get_the_ID();
+			$categories = get_the_terms($post_id, 'courses_category');
+			?>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			<article class="course-content">
+				<h1><?php the_title(); ?></h1>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'resilience' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'resilience' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+				<?php if (has_post_thumbnail()): ?>
+					<div class="course-image">
+						<?php the_post_thumbnail('large'); ?>
+					</div>
+				<?php endif; ?>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+				<div class="course-meta">
+					<?php
+					if ($categories && !is_wp_error($categories)) {
+						echo '<p><strong>Categories:</strong> ';
+						foreach ($categories as $category) {
+							echo '<span>' . esc_html($category->name) . '</span> ';
+						}
+						echo '</p>';
+					}
+					?>
+				</div>
 
-		endwhile; // End of the loop.
-		?>
+				<div class="course-description">
+					<?php the_content(); ?>
+				</div>
 
-	</main><!-- #main -->
+			</article>
 
-<?php
-get_sidebar();
-get_footer();
+		<?php endwhile;
+	endif;
+	?>
+</main>
+
+<?php get_footer(); ?>

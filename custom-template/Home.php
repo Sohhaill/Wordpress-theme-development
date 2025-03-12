@@ -82,17 +82,10 @@ $mission_images = get_field('image');
     </div>
 </section>
 <?php $course_post = get_field('course_post');
+$exploreall = $course_post['exploreall'];
 
 ?>
-<?php
-$courses_query = new WP_Query(array(
-    'post_type' => 'Courses',
-    'posts_per_page' => 3,
 
-
-))
-
-    ?>
 
 
 <section class="flex flex-col items-center py-16 gap-11 container">
@@ -167,151 +160,130 @@ $courses_query = new WP_Query(array(
 
     <div class="register_button py-[20px]
     "> <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-            href="#">Explore Courses</a>
+            href="<?php echo esc_url($exploreall['url']) ?>"><?php echo $exploreall['title'] ?></a>
     </div>
 </section>
+
+<?php $devliery_model = get_field('devliery_model');
+
+
+
+?>
+
 <section class="py-19 md:pl-20 flex  gap-6 !flex-col">
-    <div class="text-[#4C782B] text[16px] mb-2 font-medium text-center
+    <div class="text-[#4C782B] text[16px] mb-2 font-medium text-left
     ">Our Delivery Model</div>
     <div id="scrollContainer"
         class="courses_items  flex flex-col md:!flex-row  gap-6 w-full overflow-x-auto !scrollbar-hide">
-        <div class="bg-[#edf1ea] rounded-lg p-6 md:min-w-[749px] max-w-3xl shadow-md cursor-pointer">
-            <div class="flex justify-between items-center">
-                <h1 class="!text-[24px] font-semibold text-gray-800">Live Sessions</h1>
-                <div class="w-8 h-8 bg-gray-800 text-white rounded-full flex items-center justify-center text-sm">1
+        <?php foreach ($devliery_model as $models): ?>
+            <div class="bg-[#edf1ea] rounded-lg p-6 md:min-w-[749px] max-w-3xl shadow-md cursor-pointer">
+                <div class="flex justify-between items-center">
+                    <h1 class="!text-[24px] font-semibold text-gray-800"><?php echo $models['heading'] ?></h1>
+                    <div class="w-8 h-8 bg-gray-800 text-white rounded-full flex items-center justify-center text-sm">
+                        <?php echo $models['count'] ?>
+                    </div>
+                </div>
+                <hr class="border-t border-gray-300 my-4">
+                <div class="flex flex-col md:!flex-row items-center">
+                    <img src="<?php echo $models['image']['url'] ?>" alt="Icon representing live sessions" class=" mr-6">
+                    <p class="text-gray-700 text-base self-baseline
+">     <?php echo $models['paragraph'] ?></p>
                 </div>
             </div>
-            <hr class="border-t border-gray-300 my-4">
-            <div class="flex flex-col md:!flex-row items-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/fi_2989838.png"
-                    alt="Icon representing live sessions" class=" mr-6">
-                <p class="text-gray-700 text-base self-baseline
-">We offer resilience-building through personalized counseling, research
-                    insights, and tailored consultation services for success.</p>
-            </div>
-        </div>
-        <div class="bg-[#edf1ea] rounded-lg p-6 md:min-w-[749px]  max-w-3xl shadow-md">
-            <div class="flex justify-between items-center">
-                <h1 class="!text-[24px] font-semibold text-gray-800">Self-paced Learning</h1>
-                <div class="w-8 h-8 bg-gray-800 text-white rounded-full flex items-center justify-center text-sm">2
-                </div>
-            </div>
-            <hr class="border-t border-gray-300 my-4">
-            <div class="flex flex-col md:!flex-row items-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/fi_15703927.png"
-                    alt="Icon representing live sessions" class=" mr-6">
-                <p class="text-gray-700 text-base self-baseline
-">We offer resilience-building through personalized counseling, research
-                    insights, and tailored consultation services for success.</p>
-            </div>
-        </div>
-        <div class="bg-[#edf1ea] rounded-lg p-6 md:min-w-[749px]  max-w-3xl shadow-md">
-            <div class="flex justify-between items-center">
-                <h1 class="!text-[24px] font-semibold text-gray-800">Self-paced Learning</h1>
-                <div class="w-8 h-8 bg-gray-800 text-white rounded-full flex items-center justify-center text-sm">3
-                </div>
-            </div>
-            <hr class="border-t border-gray-300 my-4">
-            <div class="flex flex-col md:!flex-row items-center">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/fi_15703927.png"
-                    alt="Icon representing live sessions" class=" mr-6">
-                <p class="text-gray-700 text-base self-baseline
-">We offer resilience-building through personalized counseling, research
-                    insights, and tailored consultation services for success.</p>
-            </div>
-        </div>
+        <?php endforeach ?>
     </div>
 </section>
+<?php $counter_section = get_field('counter_section');
 
+
+?>
 <section class="bg-black text-white py-12">
 
     <div class="container mx-auto py-12 px-4 text-center">
-        <h1 class="text-[32px] font-bold">Measuring success through impact, results,<br> and achievements</h1>
-        <p class="mt-4 !mb-8 text-gray-400">We provide counseling, research, and tailored services to build strength.
+        <h1 class="text-[32px] font-bold"><?php echo $counter_section['heading'] ?></h1>
+        <p class="mt-4 !mb-8 text-gray-400"><?php echo $counter_section['paragraph'] ?>
         </p>
         <div class="mt-11 bg-white text-black rounded-lg py-6 flex !flex-col md:!flex-row justify-center items-center">
             <div class="flex-1 p-4  md:border-b-0 md:border-r border-gray-200">
-                <h2 class="!text-[18px]">Active Users</h2>
-                <p class="mt-4 text-[40px] font-bold !mb-[unset]">100k+</p>
+                <h2 class="!text-[18px]"><?php echo $counter_section['users'] ?></h2>
+                <p class="mt-4 text-[40px] font-bold !mb-[unset]"><?php echo $counter_section['counters'] ?></p>
             </div>
             <div class="flex-1 p-4  md:border-b-0 md:border-r border-gray-200">
-                <h2 class="!text-[18px]">Completed Courses</h2>
-                <p class="mt-4 text-[40px] font-bold !mb-[unset]">10k+</p>
+                <h2 class="!text-[18px]"><?php echo $counter_section['course'] ?></h2>
+                <p class="mt-4 text-[40px] font-bold !mb-[unset]"><?php echo $counter_section['course_number'] ?></p>
             </div>
             <div class="flex-1 p-4">
-                <h2 class="!text-[18px]">User Satisfaction</h2>
-                <p class="mt-4 text-[40px] font-bold !mb-[unset]">20k+</p>
+                <h2 class="!text-[18px]"><?php echo $counter_section['satisfaction'] ?></h2>
+                <p class="mt-4 text-[40px] font-bold !mb-[unset]"><?php echo $counter_section['20k+'] ?></p>
             </div>
         </div>
     </div>
 </section>
+<?php $review = get_field('review');
 
+
+?>
 <section class="bg-[#eef2ea] container my-16 !pr-[unset] rounded-[16px]">
     <div class="container mx-auto  flex flex-wrap !pr-[unset] gap-6 rounded-[16px]">
         <div class="w-full md:w-1/2 md:p-12 ">
 
             <h2 class="text-gray-900 text-[32px] font-bold mb-4 !leading-10">
-                Review and<br>
-                Accreditation Counseling
+                <?php echo $review['heading'] ?>
             </h2>
             <p class="text-gray-600 text-lg mb-4">
-                For each of the 15 statements below, choose the answer that best describes you from: (not at all,
-                rarely, sometimes, often, very often). Answer the questions as you really are (not how you think you
-                should be).
+                <?php echo $review['para1'] ?>
             </p>
             <p class="text-gray-600 text-lg mb-4">
-                For each of the 15 statements below, choose the answer that best describes you from: (not at all,
-                rarely, sometimes, often, very often). Answer the questions as you really are (not how you think you
-                should be).
+                <?php echo $review['para2'] ?>
             </p>
             <div class="register_button pb-[43px]
     ">
 
                 <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-                    href="#">Learn More</a>
+                    href="<?php echo esc_url($review['learn_more']['url']) ?>"><?php echo $review['learn_more']['title'] ?></a>
             </div>
         </div>
         <div class="flex-1 relative ">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Rectangle 16.png"
+            <img src="  <?php echo $review['image']['url'] ?>"
                 alt="A group of people sitting in a circle in a bright room with large windows, listening to a person giving a presentation."
                 class="w-full !h-full object-cover rounded-r-[16px]">
         </div>
     </div>
 </section>
+<?php $send_course = get_field('send_course');
 
+
+?>
 <section class="bg-[#eef2ea] container my-16 !pl-[unset] rounded-[16px]">
     <div class="container mx-auto  flex flex-wrap !pl-[unset] gap-6 rounded-[16px]">
         <div class="flex-1 relative ">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Rectangle 16 (1).png"
+            <img src="  <?php echo $send_course['image']['url'] ?>"
                 alt="A group of people sitting in a circle in a bright room with large windows, listening to a person giving a presentation."
                 class="w-full !h-full object-cover rounded-l-[16px]">
         </div>
         <div class="w-full md:w-1/2 md:p-12 ">
 
             <h2 class="text-gray-900 text-[32px] font-bold mb-4 !leading-10">
-                Send Your<br>
-                Course for Review
+                <?php echo $send_course['heading'] ?>
             </h2>
             <p class="text-gray-600 text-lg mb-4">
-                For each of the 15 statements below, choose the answer that best describes you from: (not at all,
-                rarely, sometimes, often, very often). Answer the questions as you really are (not how you think you
-                should be).
+                <?php echo $send_course['para1'] ?>
             </p>
             <p class="text-gray-600 text-lg mb-4">
-                For each of the 15 statements below, choose the answer that best describes you from: (not at all,
-                rarely, sometimes, often, very often). Answer the questions as you really are (not how you think you
-                should be).
+                <?php echo $send_course['para2'] ?>
             </p>
             <div class="register_button pb-[43px]
     ">
 
                 <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-                    href="#">Learn More</a>
+                    href="<?php echo esc_url($send_course['learn_more']['url']) ?>"><?php echo $review['learn_more']['title'] ?></a>
             </div>
         </div>
 
     </div>
 </section>
+
+
 <section class="flex flex-col  py-16 gap-4 container items-start">
 
     <div class="flex items-center flex-col gap-3">
@@ -319,81 +291,54 @@ $courses_query = new WP_Query(array(
 
     </div>
     <div class="card-group flex flex-col md:!flex-row gap-3">
-        <div class="card border !h-[unset]  border-[rgba(0,0,0,0.175)]  !rounded-[16px] pb-4">
-            <div class="cart_image relative">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Rectangle 31.png"
-                    class="card-img-top" alt="...">
 
-            </div>
-            <div class="card-body flex justify-between !pb-[unset] ">
-                <h5 class="card-title text-[12px] !text-[#4C782B] bg-[#edf1ea] py-[5px] px-3 rounded-[8px] !h-fit">Any
-                    text
-                    here
-                </h5>
-                <p class="!text-[14px] font-normal text-[#0D0D0D99] !mb-[unset]">Oct 02, 2024</p>
-                <!-- <h5 class="card-title !text-[14px] font-normal text-[#0D0D0D99]">Oct 02, 2024</h5> -->
-            </div>
-            <div class="card-body !pt-[unset]">
-                <h5 class="card-text !text-[24px]">Halow Event</h5>
+        <?php
 
-                <p class="card-text">For each of the 15 statements below, choose the answer that best describes you
-                    from: (not at all,) </p>
-            </div>
-            <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[10px] px-[24px] text-center rounded-[8px] border !border-[#4C782B] !w-fit !ml-4"
-                href="#">Read More</a>
+        $event_query = new WP_Query(array(
+            'post_type' => 'Events',
+            'posts_per_page' => 3,
+        ));
 
-        </div>
-        <div class="card border !h-[unset]  border-[rgba(0,0,0,0.175)]  !rounded-[16px] pb-4">
-            <div class="cart_image relative">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Rectangle 31 (1).png"
-                    class="card-img-top" alt="...">
+        if ($event_query->have_posts()):
+            while ($event_query->have_posts()):
+                $event_query->the_post();
 
-            </div>
-            <div class="card-body flex justify-between !pb-[unset] ">
-                <h5 class="card-title text-[12px] !text-[#4C782B] bg-[#edf1ea] py-[5px] px-3 rounded-[8px] !h-fit">Any
-                    text
-                    here
-                </h5>
-                <p class="!text-[14px] font-normal text-[#0D0D0D99] !mb-[unset]">Oct 02, 2024</p>
-                <!-- <h5 class="card-title !text-[14px] font-normal text-[#0D0D0D99]">Oct 02, 2024</h5> -->
-            </div>
-            <div class="card-body !pt-[unset]">
-                <h5 class="card-text !text-[24px]">Halow Event</h5>
+                ?>
+                <div class="card border !h-[unset]  border-[rgba(0,0,0,0.175)]  !rounded-[16px] pb-4">
+                    <div class="cart_image relative">
+                        <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'medium'); ?>" class="card-img-top"
+                            alt="...">
 
-                <p class="card-text">For each of the 15 statements below, choose the answer that best describes you
-                    from: (not at all,) </p>
-            </div>
-            <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[10px] px-[24px] text-center rounded-[8px] border !border-[#4C782B] !w-fit !ml-4"
-                href="#">Read More</a>
+                    </div>
+                    <div class="card-body flex justify-between !pb-[unset] ">
+                        <h5 class="card-title text-[12px] !text-[#4C782B] bg-[#edf1ea] py-[5px] px-3 rounded-[8px] !h-fit">Any
+                            text
+                            here
+                        </h5>
+                        <p class="!text-[14px] font-normal text-[#0D0D0D99] !mb-[unset]"><?php the_date() ?></p>
+                        <!-- <h5 class="card-title !text-[14px] font-normal text-[#0D0D0D99]">Oct 02, 2024</h5> -->
+                    </div>
+                    <div class="card-body !pt-[unset]">
+                        <h5 class="card-text !text-[24px]"><?php the_title(); ?></h5>
 
-        </div>
-        <div class="card border !h-[unset]  border-[rgba(0,0,0,0.175)]  !rounded-[16px] pb-4">
-            <div class="cart_image relative">
-                <img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Rectangle 31 (2).png"
-                    class="card-img-top" alt="...">
+                        <p class="card-text"><?php the_content() ?></p>
+                    </div>
+                    <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[10px] px-[24px] text-center rounded-[8px] border !border-[#4C782B] !w-fit !ml-4"
+                        href="<?php the_permalink(); ?>">Read More</a>
 
-            </div>
-            <div class="card-body flex justify-between !pb-[unset] ">
-                <h5 class="card-title text-[12px] !text-[#4C782B] bg-[#edf1ea] py-[5px] px-3 rounded-[8px] !h-fit">Any
-                    text
-                    here
-                </h5>
-                <p class="!text-[14px] font-normal text-[#0D0D0D99] !mb-[unset]">Oct 02, 2024</p>
-                <!-- <h5 class="card-title !text-[14px] font-normal text-[#0D0D0D99]">Oct 02, 2024</h5> -->
-            </div>
-            <div class="card-body !pt-[unset]">
-                <h5 class="card-text !text-[24px]">Halow Event</h5>
+                </div>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else:
+            echo '<p>No Events found.</p>';
+        endif;
+        ?>
 
-                <p class="card-text">For each of the 15 statements below, choose the answer that best describes you
-                    from: (not at all,) </p>
-            </div>
-            <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[10px] px-[24px] text-center rounded-[8px] border !border-[#4C782B] !w-fit !ml-4"
-                href="#">Read More</a>
 
-        </div>
     </div>
 </section>
-
+<?php get_sidebar() ?>
 <?php
 
 get_footer();

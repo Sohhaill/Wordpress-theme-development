@@ -143,21 +143,6 @@ add_action('after_setup_theme', 'resilience_content_width', 0);
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function resilience_widgets_init()
-{
-	register_sidebar(
-		array(
-			'name' => esc_html__('Sidebar', 'resilience'),
-			'id' => 'sidebar-1',
-			'description' => esc_html__('Add widgets here.', 'resilience'),
-			'before_widget' => '<section id="%1$s" class="widget %2$s">',
-			'after_widget' => '</section>',
-			'before_title' => '<h2 class="widget-title">',
-			'after_title' => '</h2>',
-		)
-	);
-}
-add_action('widgets_init', 'resilience_widgets_init');
 
 /**
  * Enqueue scripts and styles.
@@ -203,3 +188,16 @@ if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+function home_sidebar()
+{
+	register_sidebar(array(
+		'name' => 'Home Sidebar',
+		'id' => 'home_sidebar',
+		'description' => 'This is the main sidebar for the site.',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	));
+}
+add_action('widgets_init', 'home_sidebar');

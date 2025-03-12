@@ -40,7 +40,8 @@
 
 						?>
 
-						<a href="#"> <img src="<?php echo $logo_img; ?>" width="65"> </a>
+						<a href="<?php echo esc_url(home_url('/')); ?>"> <img src="<?php echo $logo_img; ?>" width="65">
+						</a>
 					</div>
 					<div class="header_menu">
 						<?php wp_nav_menu(array(
@@ -53,8 +54,8 @@
 
 					</div>
 					<?php
-					$Header_login = get_field('header_login');
-					$Header_signup = get_field('Header_signup');
+					$Header_login = get_field('Header_Login', 'option');
+					$Header_signup = get_field('header_signup', 'option');
 
 
 

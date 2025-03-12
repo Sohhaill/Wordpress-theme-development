@@ -7,11 +7,12 @@
  * @package resilience
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
-	return;
-}
+
 ?>
 
-<aside id="secondary" class="widget-area">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
-</aside><!-- #secondary -->
+<?php
+if (is_front_page() && is_active_sidebar('home_sidebar')): ?>
+	<aside class="home-sidebar">
+		<?php dynamic_sidebar('home_sidebar'); ?>
+	</aside>
+<?php endif; ?>

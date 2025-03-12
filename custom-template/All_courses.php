@@ -14,7 +14,7 @@ get_header();
 
 
 
-    <div class="card-group flex flex-col gap-3 md:!flex-row">
+    <div class="card-group grid grid-cols-1 md:grid-cols-3 gap-2">
         <?php
         $courses_query = new WP_Query(array(
             'post_type' => 'Courses',

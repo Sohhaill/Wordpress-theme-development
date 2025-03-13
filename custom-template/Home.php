@@ -250,38 +250,38 @@ $exploreall = $course_post['exploreall'];
         </div>
     </div>
 </section>
-<?php $send_course = get_field('send_course');
+<contact>
+    <?php $send_course = get_field('send_course'); ?>
+    <section class="bg-[#eef2ea] container my-16 !pl-[unset] rounded-[16px]">
+        <div class="container mx-auto  flex flex-wrap !pl-[unset] gap-6 rounded-[16px]">
+            <div class="flex-1 relative ">
+                <img src="  <?php echo $send_course['image']['url'] ?>"
+                    alt="A group of people sitting in a circle in a bright room with large windows, listening to a person giving a presentation."
+                    class="w-full !h-full object-cover rounded-l-[16px]">
+            </div>
+            <div class="w-full md:w-1/2 md:p-12 ">
 
-
-?>
-<section class="bg-[#eef2ea] container my-16 !pl-[unset] rounded-[16px]">
-    <div class="container mx-auto  flex flex-wrap !pl-[unset] gap-6 rounded-[16px]">
-        <div class="flex-1 relative ">
-            <img src="  <?php echo $send_course['image']['url'] ?>"
-                alt="A group of people sitting in a circle in a bright room with large windows, listening to a person giving a presentation."
-                class="w-full !h-full object-cover rounded-l-[16px]">
-        </div>
-        <div class="w-full md:w-1/2 md:p-12 ">
-
-            <h2 class="text-gray-900 text-[32px] font-bold mb-4 !leading-10">
-                <?php echo $send_course['heading'] ?>
-            </h2>
-            <p class="text-gray-600 text-lg mb-4">
-                <?php echo $send_course['para1'] ?>
-            </p>
-            <p class="text-gray-600 text-lg mb-4">
-                <?php echo $send_course['para2'] ?>
-            </p>
-            <div class="register_button pb-[43px]
+                <h2 class="text-gray-900 text-[32px] font-bold mb-4 !leading-10">
+                    <?php echo $send_course['heading'] ?>
+                </h2>
+                <p class="text-gray-600 text-lg mb-4">
+                    <?php echo $send_course['para1'] ?>
+                </p>
+                <p class="text-gray-600 text-lg mb-4">
+                    <?php echo $send_course['para2'] ?>
+                </p>
+                <div class="register_button pb-[43px]
     ">
 
-                <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
-                    href="<?php echo esc_url($send_course['learn_more']['url']) ?>"><?php echo $review['learn_more']['title'] ?></a>
+                    <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+                        href="<?php echo esc_url($send_course['learn_more']['url']) ?>"><?php echo $review['learn_more']['title'] ?></a>
+                </div>
             </div>
-        </div>
 
-    </div>
-</section>
+        </div>
+    </section>
+
+</contact>
 
 
 <section class="flex flex-col  py-16 gap-4 container items-start">
@@ -311,7 +311,8 @@ $exploreall = $course_post['exploreall'];
 
                     </div>
                     <div class="card-body flex justify-between !pb-[unset] ">
-                        <h5 class="card-title text-[12px] !text-[#4C782B] bg-[#edf1ea] py-[5px] px-3 rounded-[8px] !h-fit">Any
+                        <h5 class="card-title text-[12px] !text-[#4C782B] bg-[#edf1ea] py-[5px] px-3 rounded-[8px] !h-fit">
+                            Any
                             text
                             here
                         </h5>
@@ -338,7 +339,53 @@ $exploreall = $course_post['exploreall'];
 
     </div>
 </section>
-<?php get_sidebar() ?>
+<?php $contactus = get_field('contactus');
+$links_contact = $contactus['links_contact'];
+
+
+?>
+<section class="bg-gray-100 flex items-center justify-center p-6">
+    <div class="container  p-6  rounded-lg  flex !flex-row md:flex-col gap-6">
+        <div class="contact-info w-full md:w-1/2">
+            <h2 class="text-[32px] font-bold mb-2"> <?php echo $contactus['heading'] ?></h2>
+            <p class="text-sm text-gray-600 mb-4"> <?php echo $contactus['para'] ?></p>
+
+
+            <div class="rounded-lg   w-full max-w-md">
+                <?php foreach ($links_contact as $links): ?>
+                    <div
+                        class="flex items-start bg-white rounded-[16px] py-[14px] px-[16px] mb-4 border border-[#0D0D0D1A]">
+                        <div class="bg-[#f6f8f4] rounded-[16px] p-[12px] mr-4">
+                            <img alt="Email icon" class="w-6 h-6" height="24" src="<?php echo $links['image']['url'] ?>"
+                                width="24" />
+                        </div>
+                        <div class="flex-grow">
+                            <h4 class="text-gray-800 text-[16px] font-semibold !mb-[unset]">
+                                <?php echo $links['heading'] ?>
+                            </h4>
+                            <p class="text-gray-600 !mb-[unset]">
+                                <?php echo $links['text'] ?>
+                            </p>
+                        </div>
+                        <div class="bg-[#f6f8f4] rounded-[16px] p-[14px] ">
+                            <img alt="Email icon"
+                                src="<?php echo get_template_directory_uri() . '/assets/bootstrap/images/fi_3314260.png'; ?>" />
+                        </div>
+                    </div>
+                <?php endforeach ?>
+            </div>
+
+        </div>
+        <div class="contact-form w-full md:w-1/2 bg-[#ebede9] border border-[#4C782B33] rounded-[16px] p-9">
+            <h2 class="text-2xl font-bold mb-2">Let's Connect</h2>
+            <p class="text-sm text-gray-600 mb-4">For each of the 15 statements below, choose the answer that best
+                describes you from: (not at all, rarely, so).</p>
+            <?php get_sidebar(); ?>
+        </div>
+    </div>
+</section>
+
+
 <?php
 
 get_footer();

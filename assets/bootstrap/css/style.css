@@ -11,3 +11,24 @@ ul#menu-header-menu a {
    text-decoration: none;
    color: #0D0D0DCC;
 }
+ul#menu-footer-1, ul#menu-footer-2 {
+    margin: unset;
+    padding: unset;
+    display: flex
+;
+    flex-direction: column;
+    gap: 15px;
+    list-style: none;
+}
+ul#menu-footer-1 a, ul#menu-footer-2 a, ul#menu-footer-3 a{
+    text-decoration: none;
+    color: white;
+}
+ul#menu-footer-3{
+    display: flex;
+    gap: 15px;
+}
+li#menu-item-203{
+    list-style: none;
+    margin-right: 18px;
+}

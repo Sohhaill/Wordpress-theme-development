@@ -11,7 +11,7 @@
 ?>
 
 <?php
-if (is_front_page() && is_active_sidebar('home_sidebar')): ?>
+if ((is_front_page() || is_page('contact-us')) && is_active_sidebar('home_sidebar')): ?>
 	<aside class="home-sidebar">
 		<?php dynamic_sidebar('home_sidebar'); ?>
 	</aside>

@@ -6,8 +6,7 @@ Template Name: All Courses
 ?>
 
 <?php
-$Header_login = get_field('header_login');
-$Header_signup = get_field('Header_signup');
+
 get_header();
 ?>
 <section class="flex flex-col items-center py-16 gap-11 container">

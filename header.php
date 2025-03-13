@@ -46,7 +46,7 @@
 					<div class="header_menu">
 						<?php wp_nav_menu(array(
 							'container' => false,
-							'menu' => 'menu-1',
+							'menu' => 'Header Menu',
 							'menu_class' => 'navigation ',
 
 

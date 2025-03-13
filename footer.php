@@ -8,34 +8,32 @@
  *
  * @package resilience 
  * 
- */  
+ */
 
 ?>
+<?php
+$footer_logo = get_field('footer_logo', 'option');
+$footer_para = get_field('footer_para', 'option');
+
+$social_icons = get_field('social_icons', 'option');
+
+$footer_bottom = get_field('footer_bottom', 'option'); ?>
 
 <footer class="bg-black text-gray-300 !mt-auto">
 	<div class="pt-13">
 		<div class="flex flex-col md:!flex-row justify-between items-center   border-gray-700 pb-16 container ">
 			<div class="flex flex-col items-start max-w-md">
-				<img src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/4163832fedf8097449cbebf3fca3eb01.png"
-					alt="Resilience logo" class="mb-4 w-[88px]">
+				<img src="<?php echo $footer_logo['url'] ?>" alt="Resilience logo" class="mb-4 w-[88px]">
 				<p class="mb-4">
-					For each of the 15 statements below, choose the answer that best describes you from: (not at all,
-					rarely, sometimes, often, very often). Answer the questions as you really are (not how you think you
-					should be).
+					<?php echo $footer_para ?>
 				</p>
 				<div class="flex space-x-4 mt-4">
-					<a href="#"> <img
-							src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Group 1171274839.png">
-					</a>
-					<a href="#"> <img
-							src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Group 1261153819.png">
-					</a>
-					<a href="#"> <img
-							src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Group 1261153817.png">
-					</a>
-					<a href="#"> <img
-							src="<?php echo get_template_directory_uri(); ?>/assets/bootstrap/images/Group 1261153818.png">
-					</a>
+					<?php foreach ($social_icons as $social): ?>
+
+						<a href="<?php $social['social_image']['url'] ?>"> <img
+								src="<?php echo esc_url($social['social_image']['url']) ?>">
+						</a>
+					<?php endforeach ?>
 				</div>
 			</div>
 			<div
@@ -43,28 +41,43 @@
 				<div class="flex flex-col gap-[16px]">
 					<h3 class="mb-2 text-[16px]">Navigation</h3>
 					<div class="footer_menuone flex flex-col gap-[12px]">
-						<a href="#" class="mb-1 no-underline !text-[#fff]">Courses</a>
-						<a href="#" class="mb-1 no-underline !text-[#fff]">Model</a>
-						<a href="#" class="mb-1 no-underline !text-[#fff]">About Us</a>
-						<a href="#" class="mb-1 no-underline !text-[#fff]">Contact Us</a>
+						<?php wp_nav_menu(array(
+							'container' => false,
+							'menu' => 'Footer 1',
+							'menu_class' => 'navigation ',
+
+
+						)) ?>
+
 					</div>
 				</div>
 				<div class="flex flex-col gap-[16px]">
 					<h3 class="mb-2 text-[16px]">Navigation</h3>
 					<div class="footer_menutwo flex flex-col gap-[12px]">
-						<a href="#" class="mb-1 no-underline !text-[#fff]">Login</a>
-						<a href="#" class="mb-1 no-underline !text-[#fff]">Sign up</a>
+						<?php wp_nav_menu(array(
+							'container' => false,
+							'menu' => 'Footer 2',
+							'menu_class' => 'navigation ',
+
+
+						)) ?>
+
 					</div>
 				</div>
 			</div>
 		</div>
 		<div class="seprator border-t border-gray-700"></div>
 		<div class="flex justify-between items-center !py-9 !px-[unset] text-sm container ">
-			<p>© 2024 Resilience. All rights reserved.</p>
+			<p><?php echo $footer_bottom ?></p>
 			<div class="flex space-x-4">
-				<a href="#" class="!text-[#fff] no-underline">Terms &amp; conditions</a>
-				<span>•</span>
-				<a href="#" class="!text-[#fff] no-underline">Privacy policy</a>
+				<?php wp_nav_menu(array(
+					'container' => false,
+					'menu' => 'Footer 3',
+					'menu_class' => 'navigation ',
+
+
+				)) ?>
+
 			</div>
 		</div>
 	</div>

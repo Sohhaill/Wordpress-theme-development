@@ -81,6 +81,7 @@ function resilience_setup()
 			'menu-1' => esc_html__('Header Menu', 'resilience'),
 			'footer-1' => esc_html__('Footer Menu1', 'resilience'),
 			'footer-2' => esc_html__('Footer Menu2', 'resilience'),
+			'footer-3' => esc_html__('Footer Menu3', 'resilience'),
 		)
 	);
 
@@ -201,3 +202,31 @@ function home_sidebar()
 	));
 }
 add_action('widgets_init', 'home_sidebar');
+
+function login_sidebar()
+{
+	register_sidebar(array(
+		'name' => 'Login Sidebar',
+		'id' => 'logins_sidebar',
+		'description' => 'This is the main sidebar for the site.',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	));
+}
+add_action('widgets_init', 'login_sidebar');
+
+function signup_sidebar()
+{
+	register_sidebar(array(
+		'name' => 'SignUp Sidebar',
+		'id' => 'Signup_sidebar',
+		'description' => 'This is the main sidebar for the site.',
+		'before_widget' => '<div class="widget">',
+		'after_widget' => '</div>',
+		'before_title' => '<h3 class="widget-title">',
+		'after_title' => '</h3>',
+	));
+}
+add_action('widgets_init', 'signup_sidebar');

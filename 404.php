@@ -10,51 +10,23 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<div class="error flex flex-col justify-start items-center h-screen">
+	<div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium">
+		Page not found </div>
+	<h1 class="text-[40px] font-bold text-black mb-5 mt-2">
+		Looking a little lost?
+	</h1>
+	<img src="<?php echo get_template_directory_uri() . '/assets/bootstrap/images/Group.png'; ?>">
+	<p class="text-gray-600 mt-4">
+		Looks like you ventured too far little one, let's go home.</p>
+	<div class="register_button flex gap-[8px] items-center justify-center
+	">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'resilience' ); ?></h1>
-			</header><!-- .page-header -->
+		<a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+			href="<?php echo esc_url(home_url('/')); ?>">Go Home</a>
+	</div>
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'resilience' ); ?></p>
-
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'resilience' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$resilience_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'resilience' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$resilience_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+</div>
 
 <?php
 get_footer();

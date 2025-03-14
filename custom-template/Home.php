@@ -223,8 +223,8 @@ $exploreall = $course_post['exploreall'];
 
 
 ?>
-<section class="bg-[#eef2ea] container my-16 !pr-[unset] rounded-[16px]">
-    <div class="container mx-auto  flex flex-wrap !pr-[unset] gap-6 rounded-[16px]">
+<section class="bg-[#eef2ea] container my-16 md:!pr-[unset] rounded-[16px] ">
+    <div class="container mx-auto  flex flex-wrap md:!pr-[unset] gap-6 rounded-[16px]">
         <div class="w-full md:w-1/2 md:p-12 ">
 
             <h2 class="text-gray-900 text-[32px] font-bold mb-4 !leading-10">
@@ -252,8 +252,8 @@ $exploreall = $course_post['exploreall'];
 </section>
 <contact>
     <?php $send_course = get_field('send_course'); ?>
-    <section class="bg-[#eef2ea] container my-16 !pl-[unset] rounded-[16px]">
-        <div class="container mx-auto  flex flex-wrap !pl-[unset] gap-6 rounded-[16px]">
+    <section class="bg-[#eef2ea] container my-16 md:!pl-[unset] rounded-[16px]">
+        <div class="container mx-auto  flex flex-wrap md:!pl-[unset] gap-6 rounded-[16px]">
             <div class="flex-1 relative ">
                 <img src="  <?php echo $send_course['image']['url'] ?>"
                     alt="A group of people sitting in a circle in a bright room with large windows, listening to a person giving a presentation."
@@ -345,7 +345,7 @@ $links_contact = $contactus['links_contact'];
 
 ?>
 <section class="bg-gray-100 flex items-center justify-center p-6">
-    <div class="container  p-6  rounded-lg  flex !flex-row md:flex-col gap-6">
+    <div class="container  p-6  rounded-lg  flex !flex-col md:!flex-row gap-6">
         <div class="contact-info w-full md:w-1/2">
             <h2 class="text-[32px] font-bold mb-2"> <?php echo $contactus['heading'] ?></h2>
             <p class="text-sm text-gray-600 mb-4"> <?php echo $contactus['para'] ?></p>

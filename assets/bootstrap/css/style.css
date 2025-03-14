@@ -32,3 +32,16 @@ li#menu-item-203{
     list-style: none;
     margin-right: 18px;
 }
+div#mobile_menu ul{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+div#mobile_menu li{
+    list-style: none;
+    text-align: right;
+}
+div#mobile_menu a{
+    text-decoration: none;
+color: black;
+}

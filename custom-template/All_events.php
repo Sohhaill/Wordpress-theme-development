@@ -9,18 +9,19 @@ Template Name: All Events
 
 get_header();
 ?>
-<section class="flex flex-col  py-16 gap-4 container items-start">
+<section class="flex flex-col  py-16 gap-4 container items-center justify-center">
 
     <div class="flex items-center flex-col gap-1s">
-        <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium">
+        <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium !m-[unset]">
             Announcements & Events</div>
-        <h1 class="text-gray-800 text-[32px] !font-bold text-center">Stay Updated with Our Latest Announcements & Events
+        <h1 class="text-gray-800 text-[40px] !font-bold text-center">Stay Updated with Our Latest <br> Announcements &
+            Events
         </h1>
 
         <p class="text-gray-600 ">
             Discover What's New – Announcements, Updates, and Upcoming Events</p>
     </div>
-    <div class="card-group flex flex-col md:!flex-row gap-3">
+    <div class="card-group grid grid-cols-1 md:grid-cols-3 gap-2">
 
         <?php
 

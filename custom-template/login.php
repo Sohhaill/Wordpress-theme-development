@@ -9,11 +9,11 @@ Template Name: Login
 
 get_header();
 ?>
-<div class="container container flex justify-start items-center !flex-col gap-7 h-screen pt-8">
+<div class="container  flex justify-start items-center !flex-col gap-7 h-screen pt-8">
     <div class="contact_text flex justify-center items-center !flex-col gap-3">
         <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium">
             Welcome </div>
-        <h2 clang="text-[40px]">Log into <span style="color:#4C782B;"> Resilience</span></h2>
+        <h2 class="text-[40px] font-[500] font-[black]">Log into <span style="color:#4C782B;"> Resilience</span></h2>
     </div>
     <div class="login-container  ">
 

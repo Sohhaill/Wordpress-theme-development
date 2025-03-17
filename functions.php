@@ -14,6 +14,8 @@ function wplearning_theme_script()
 	wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
 	wp_enqueue_style('tailwind-css', get_template_directory_uri() . '/src/output.css');
 	wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/bootstrap/css/style.css'); // Unique handle
+	wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com', array(), null, false);
+	wp_enqueue_style('tajawal-font', 'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 
 	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.js');
 
@@ -217,16 +219,16 @@ function login_sidebar()
 }
 add_action('widgets_init', 'login_sidebar');
 
-function signup_sidebar()
+function sigun_up()
 {
 	register_sidebar(array(
-		'name' => 'SignUp Sidebar',
-		'id' => 'Signup_sidebar',
-		'description' => 'This is the main sidebar for the site.',
-		'before_widget' => '<div class="widget">',
+		'name' => 'Signup Sidebar',
+		'id' => 'signup_sidebar',
+		'description' => 'This is the sign sidebar for the site.',
+		'before_widget' => '<div class="widget1">',
 		'after_widget' => '</div>',
-		'before_title' => '<h3 class="widget-title">',
+		'before_title' => '<h3 class="widget-title1">',
 		'after_title' => '</h3>',
 	));
 }
-add_action('widgets_init', 'signup_sidebar');
+add_action('widgets_init', 'sigun_up');

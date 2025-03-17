@@ -20,18 +20,18 @@ $banner_image = $home_banner['image'];
     <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium">
         <?php echo $home_banner['empower'] ?>
     </div>
-    <h1 class="text-[40px] font-bold text-black mt-5">
+    <h1 class="text-[40px] tajawal font-bold text-black mt-5">
         <span class="text-green-700 "> <?php echo $home_banner['resiliance_span'] ?> </span>
         <?php echo $home_banner['heading'] ?></span>
     </h1>
-    <p class="text-gray-600 mt-4">
+    <p class="text-gray-600 mt-5 !mb-6">
         <?php echo $home_banner['paragraph'] ?>
     </p>
     <div class="register_button flex gap-[8px] items-center justify-center
     ">
-        <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[12px] px-[24px] text-center rounded-[8px] border border-[rgba(76,120,43,1)]
+        <a class="!text-[#4c782b] no-underline font-[600] text-[16px] py-[12px] px-[24px] text-center rounded-[8px] border border-[rgba(76,120,43,1)]
 " href="<?php echo esc_url($course_button['url']) ?>"> <?php echo $course_button['title'] ?></a>
-        <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+        <a class="!text-[#fff] no-underline font-[600] text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
             href="<?php echo esc_url($banner_login['url']) ?>"> <?php echo $banner_login['title'] ?></a>
     </div>
     <?php if (!empty($banner_image)) {
@@ -67,14 +67,14 @@ $mission_images = get_field('image');
             <div class="register_button 
     ">
 
-                <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+                <a class="!text-[#fff] no-underline font-[600] text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
                     href="<?php echo esc_url($mission_learn['url']) ?>"> <?php echo $mission_learn['title'] ?></a>
             </div>
         </div>
         <div class="w-full md:w-1/2 p-4 grid grid-cols-2
  gap-4">
             <?php foreach ($mission_images as $m_images): ?>
-                <img alt="Group of people in a counseling session" class="w-full rounded-lg"
+                <img alt="Group of people in a counseling session" class="w-full rounded-lg h-full object-cover"
                     src="<?php echo $m_images['mission_image']['url'] ?>" />
 
             <?php endforeach ?>
@@ -93,7 +93,7 @@ $exploreall = $course_post['exploreall'];
 
     <div class="flex items-center flex-col gap-3">
         <div class="text-[#4C782B] text[16px] mb-2 font-medium"> <?php echo $course_post['explore'] ?></div>
-        <div class="text-gray-800 text-2xl font-bold text-center"> <?php echo $course_post['heading'] ?></div>
+        <div class="text-gray-800 text-[32px] font-bold text-center"> <?php echo $course_post['heading'] ?></div>
 
     </div>
     <div class="card-group flex flex-col gap-3 md:!flex-row">
@@ -134,8 +134,8 @@ $exploreall = $course_post['exploreall'];
                         </div>
                     </div>
                     <div class="card-body flex justify-between !pb-[unset]">
-                        <h5 class="card-title"><?php the_title(); ?></h5>
-                        <h5 class="card-title text-[16px] font-normal text-[#0D0D0DCC]">
+                        <h5 class="card-title text-[24px] font-bold"><?php the_title(); ?></h5>
+                        <h5 class="card-title text-[16px] font-bold text-[#0D0D0DCC]">
                             <?php echo $age ?>
                         </h5>
                     </div>
@@ -159,7 +159,7 @@ $exploreall = $course_post['exploreall'];
 
 
     <div class="register_button py-[20px]
-    "> <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+    "> <a class="!text-[#fff] no-underline font-[600] text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
             href="<?php echo esc_url($exploreall['url']) ?>"><?php echo $exploreall['title'] ?></a>
     </div>
 </section>
@@ -170,11 +170,11 @@ $exploreall = $course_post['exploreall'];
 
 ?>
 
-<section class="py-19 md:pl-20 flex  gap-6 !flex-col">
+<section class="py-19 lg:pl-20 flex  gap-6 !flex-col">
     <div class="text-[#4C782B] text[16px] mb-2 font-medium text-left
     ">Our Delivery Model</div>
     <div id="scrollContainer"
-        class="courses_items  flex flex-col md:!flex-row  gap-6 w-full overflow-x-auto !scrollbar-hide">
+        class="courses_items  flex flex-col lg:!flex-row  gap-6 w-full overflow-x-auto !scrollbar-hide">
         <?php foreach ($devliery_model as $models): ?>
             <div class="bg-[#edf1ea] rounded-lg p-6 md:min-w-[749px] max-w-3xl shadow-md cursor-pointer">
                 <div class="flex justify-between items-center">
@@ -239,7 +239,7 @@ $exploreall = $course_post['exploreall'];
             <div class="register_button pb-[43px]
     ">
 
-                <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+                <a class="!text-[#fff] no-underline font-[600] text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
                     href="<?php echo esc_url($review['learn_more']['url']) ?>"><?php echo $review['learn_more']['title'] ?></a>
             </div>
         </div>
@@ -270,10 +270,9 @@ $exploreall = $course_post['exploreall'];
                 <p class="text-gray-600 text-lg mb-4">
                     <?php echo $send_course['para2'] ?>
                 </p>
-                <div class="register_button pb-[43px]
-    ">
+                <div class="register_button pb-[43px]">
 
-                    <a class="!text-[#fff] no-underline font-medium text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
+                    <a class="!text-[#fff] no-underline font-[600] text-[16px] bg-[#4c782b] text-center py-[10px] px-[24px] rounded-[8px]"
                         href="<?php echo esc_url($send_course['learn_more']['url']) ?>"><?php echo $review['learn_more']['title'] ?></a>
                 </div>
             </div>
@@ -320,11 +319,11 @@ $exploreall = $course_post['exploreall'];
                         <!-- <h5 class="card-title !text-[14px] font-normal text-[#0D0D0D99]">Oct 02, 2024</h5> -->
                     </div>
                     <div class="card-body !pt-[unset]">
-                        <h5 class="card-text !text-[24px]"><?php the_title(); ?></h5>
+                        <h5 class="card-text !text-[24px] font-bold"><?php the_title(); ?></h5>
 
                         <p class="card-text"><?php the_content() ?></p>
                     </div>
-                    <a class="!text-[#4c782b] no-underline font-medium text-[16px] py-[10px] px-[24px] text-center rounded-[8px] border !border-[#4C782B] !w-fit !ml-4"
+                    <a class="!text-[#4c782b] no-underline font-[600] text-[16px] py-[10px] px-[24px] text-center rounded-[8px] border !border-[#4C782B] !w-fit !ml-4"
                         href="<?php the_permalink(); ?>">Read More</a>
 
                 </div>

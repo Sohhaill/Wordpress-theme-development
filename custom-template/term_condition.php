@@ -41,8 +41,8 @@ $term_condition = $term['term_condition'];
 
         <?php foreach ($term_condition as $t_left): ?>
             <div id="<?php echo $t_left['id'] ?>">
-                <h1 class="text-right !mt-[unset]"> <?php echo $t_left['heading'] ?></h1>
-                <p class="text-right"> <?php echo $t_left['para'] ?></p>
+                <h1 class="text-right !mt-[unset] mb-4 text-[20px] font-bold"> <?php echo $t_left['heading'] ?></h1>
+                <p class="text-right text-[16px] mb-5"> <?php echo $t_left['para'] ?></p>
             </div>
         <?php endforeach ?>
     </div>
@@ -52,7 +52,7 @@ $term_condition = $term['term_condition'];
             <?php foreach ($term_condition as $t_right): ?>
 
                 <a class="text-right !no-underline " href="#<?php echo $t_right['id'] ?>">
-                    <h1 class="text-right  text-black !text-[18px]  p-[9px] hover:bg-[#edf1ea]">
+                    <h1 class="text-right  text-black !text-[18px] font-bold p-[18px] hover:bg-[#edf1ea]">
                         <?php echo $t_right['heading'] ?>
                     </h1>
                 </a>

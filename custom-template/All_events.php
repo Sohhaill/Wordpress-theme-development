@@ -12,13 +12,14 @@ get_header();
 <section class="flex flex-col  py-16 gap-4 container items-center justify-center">
 
     <div class="flex items-center flex-col gap-1s">
-        <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium !m-[unset]">
+        <div
+            class="!mb-4 inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium !m-[unset]">
             Announcements & Events</div>
         <h1 class="text-gray-800 text-[40px] !font-bold text-center">Stay Updated with Our Latest <br> Announcements &
             Events
         </h1>
 
-        <p class="text-gray-600 ">
+        <p class="text-gray-600 mt-4 mb-11">
             Discover What's New – Announcements, Updates, and Upcoming Events</p>
     </div>
     <div class="card-group grid grid-cols-1 md:grid-cols-3 gap-2">
@@ -51,7 +52,7 @@ get_header();
                         <!-- <h5 class="card-title !text-[14px] font-normal text-[#0D0D0D99]">Oct 02, 2024</h5> -->
                     </div>
                     <div class="card-body !pt-[unset]">
-                        <h5 class="card-text !text-[24px]"><?php the_title(); ?></h5>
+                        <h5 class="card-text !text-[24px] font-bold"><?php the_title(); ?></h5>
 
                         <p class="card-text"><?php the_content() ?></p>
                     </div>

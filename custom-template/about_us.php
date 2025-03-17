@@ -13,9 +13,9 @@ get_header();
 <?php $about_banner = get_field('about_banner');
 
 ?>
-<section class="container py-10 relative max-md:pt-[unset]">
-    <img src="<?php echo esc_url($about_banner['image']['url']) ?>" class="img-fluid" alt="...">
-    <h1 class="!text-[#fff] max-md:!bottom-[2px] text-[20px] md:text-[40px] font-bold text-center absolute bottom-7 left-1/2  -translate-x-1/2 -translate-y-1/2
+<section class="container py-10 relative max-md:pt-[unset] !text-center flex justify-center">
+    <img src="<?php echo esc_url($about_banner['image']['url']) ?>" class="img-fluid t" alt="...">
+    <h1 class="!text-[#fff] max-md:!bottom-[2px] text-[20px] max-md:hidden md:text-[40px] font-bold text-center absolute !bottom-13 left-[30%] 
 "><?php echo $about_banner['heading'] ?> <span class="text-[#7ABD47] italic">
             <?php echo $about_banner['span'] ?>
         </span>
@@ -25,8 +25,8 @@ get_header();
 $journy_repeat = $journey['journey_right'];
 
 ?>
-<section class="container flex items-center justify-center ">
-    <div class="bg-white rounded-lg  flex lg:!flex-row flex-col justify-between  w-full">
+<section class="container flex items-center justify-center py-9">
+    <div class="bg-white rounded-lg  flex md:!flex-row flex-col justify-center items-center gap-20   w-full">
         <div class="md:w-[512px] mb-8 md:mb-0">
             <div class="inline-block bg-gray-100 text-green-700 py-[5px] px-3 rounded-full text-sm  font-medium">
                 <?php echo $journey['what'] ?>
@@ -35,7 +35,7 @@ $journy_repeat = $journey['journey_right'];
             <p class="text-gray-600 mb-4"> <?php echo $journey['para1'] ?></p>
             <p class="text-gray-600"> <?php echo $journey['para2'] ?></p>
         </div>
-        <div class="md:w-2/5">
+        <div class="md:w-2/5 max-md:!w-full">
             <div class="space-y-4 max-md:!w-full">
                 <?php foreach ($journy_repeat as $repeat): ?>
                     <div class="hover_about group">
@@ -81,7 +81,7 @@ $process_right = $process['process_right'];
             <h1 class="text-[32px] font-bold text-gray-800 !mb-16 !mt-2 ">
                 <?php echo $process['heading'] ?>
             </h1>
-            <div class="flex !flex-col md:!flex-row items-start justify-between">
+            <div class="flex !flex-col lg:!flex-row items-center lg:items-start gap-20 justify-center">
                 <div class="mb-6 md:mb-0 md:mr-6">
                     <img src="  <?php echo esc_url($process['image']['url']) ?>"
                         alt="People in a meeting discussing with a laptop and documents on the table"
@@ -92,7 +92,7 @@ $process_right = $process['process_right'];
                         <div
                             class="apply flex flex-col items-start gap-2 justify-start bg-[#EDF2EA] rounded-[16px] p-[20px] border border-[#4C782B33] md:w-[592px]">
                             <div class="flex items-start space-x-4">
-                                <div class="bg-[#DDE6D7] rounded-[16px] p-[10px] mr-4">
+                                <div class="bg-[#DDE6D7] rounded-[16px] p-[10px] ">
                                     <img alt="Email icon" class="w-6 h-6" height="24"
                                         src="<?php echo esc_url($processs['image']['url']) ?>" width="24">
                                 </div>

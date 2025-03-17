@@ -40,8 +40,8 @@ $privacy_policy = $privacy_content['privacy_policy'];
 
         <?php foreach ($privacy_policy as $left): ?>
             <div id="<?php echo $left['id'] ?>">
-                <h1 class="text-right !mt-[unset]"> <?php echo $left['heading'] ?></h1>
-                <p class="text-right"> <?php echo $left['para'] ?></p>
+                <h1 class="text-right !mt-[unset] mb-4 text-[20px] font-bold"> <?php echo $left['heading'] ?></h1>
+                <p class="text-right text-[16px] mb-5"> <?php echo $left['para'] ?></p>
             </div>
         <?php endforeach ?>
     </div>
@@ -51,7 +51,7 @@ $privacy_policy = $privacy_content['privacy_policy'];
             <?php foreach ($privacy_policy as $right): ?>
 
                 <a class="text-right !no-underline " href="#<?php echo $right['id'] ?>">
-                    <h1 class="text-right  text-black !text-[18px]  p-[9px] hover:bg-[#edf1ea]">
+                    <h1 class="text-right  text-black !text-[18px] font-bold  p-[18px] hover:bg-[#edf1ea]">
                         <?php echo $right['heading'] ?>
                     </h1>
                 </a>

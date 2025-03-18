@@ -23,20 +23,6 @@ function wplearning_theme_script()
 add_action('wp_enqueue_scripts', 'wplearning_theme_script');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 if (!defined('_S_VERSION')) {
 	// Replace the version number of the theme on each release.
 	define('_S_VERSION', '1.0.0');
@@ -59,8 +45,7 @@ function resilience_setup()
 	 */
 	load_theme_textdomain('resilience', get_template_directory() . '/languages');
 
-	// Add default posts and comments RSS feed links to head.
-	add_theme_support('automatic-feed-links');
+
 
 	/*
 	 * Let WordPress manage the document title.
@@ -87,22 +72,6 @@ function resilience_setup()
 		)
 	);
 
-	/*
-	 * Switch default core markup for search form, comment form, and comments
-	 * to output valid HTML5.
-	 */
-	add_theme_support(
-		'html5',
-		array(
-			'search-form',
-			'comment-form',
-			'comment-list',
-			'gallery',
-			'caption',
-			'style',
-			'script',
-		)
-	);
 
 	// Set up the WordPress core custom background feature.
 	add_theme_support(
@@ -116,8 +85,6 @@ function resilience_setup()
 		)
 	);
 
-	// Add theme support for selective refresh for widgets.
-	add_theme_support('customize-selective-refresh-widgets');
 
 	/**
 	 * Add support for core custom logo.

@@ -343,7 +343,7 @@ $links_contact = $contactus['links_contact'];
 
 
 ?>
-<section class="bg-gray-100 flex items-center justify-center p-6">
+<section class="bg-gray-100 flex items-center justify-center lg:p-6">
     <div class="container  p-6  rounded-lg  flex !flex-col md:!flex-row gap-6">
         <div class="contact-info w-full md:w-1/2">
             <h2 class="text-[32px] font-bold mb-2"> <?php echo $contactus['heading'] ?></h2>

@@ -57,4 +57,8 @@ color: black;
 h1, p, span, h2, h3, h4, h5, h6, div, a{
     font-family: 'Tajawal' !important;
 }
-
+@media (max-width:768px){
+    h1, h2, h3{
+        font-size: 24px !important;
+    }
+}

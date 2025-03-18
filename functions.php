@@ -11,13 +11,13 @@
 function wplearning_theme_script()
 {
 	wp_enqueue_style('style', get_stylesheet_directory_uri());
-	wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.css');
+	wp_enqueue_style('bootstrap-css', get_template_directory_uri() . '/assets/css/bootstrap.min.css');
 	wp_enqueue_style('tailwind-css', get_template_directory_uri() . '/src/output.css');
-	wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/bootstrap/css/style.css'); // Unique handle
+	wp_enqueue_style('custom-style', get_template_directory_uri() . '/assets/css/style.css'); // Unique handle
 	wp_enqueue_script('tailwindcss', 'https://cdn.tailwindcss.com', array(), null, false);
 	wp_enqueue_style('tajawal-font', 'https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
 
-	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/bootstrap/css/bootstrap.min.js');
+	wp_enqueue_script('bootstrap-js', get_template_directory_uri() . '/assets/css/bootstrap.min.js');
 
 }
 add_action('wp_enqueue_scripts', 'wplearning_theme_script');
@@ -122,7 +122,7 @@ function resilience_scripts()
 	wp_enqueue_style('resilience-style', get_stylesheet_uri(), array(), _S_VERSION);
 	wp_style_add_data('resilience-style', 'rtl', 'replace');
 
-	wp_enqueue_script('resilience-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true);
+	wp_enqueue_script('resilience-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _S_VERSION, true);
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
@@ -149,8 +149,8 @@ require get_template_directory() . '/inc/template-functions.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
-require get_template_directory() . '/custom-post-type/Courses.php';
-require get_template_directory() . '/custom-post-type/Events.php';
+require get_template_directory() . '/inc/Courses.php';
+require get_template_directory() . '/inc/Events.php';
 /**
  * Load Jetpack compatibility file.
  */
